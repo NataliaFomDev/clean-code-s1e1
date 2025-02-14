@@ -11,7 +11,7 @@
 var taskInput=document.getElementById("main-section__new-task");//Add a new task.
 var addButton=document.getElementsByTagName("button")[0];//first button
 var incompleteTaskHolder=document.getElementById("main-section__todo-task");//ul of #main-section__todo-task
-var completedTasksHolder=document.getElementById("completed-tasks");//completed-tasks
+var completedTasksHolder=document.getElementById("main-section__completed-tasks");//main-section__completed-tasks
 
 
 //New task list item
@@ -85,11 +85,11 @@ var editTask=function(){
   var editInput=listItem.querySelector('input[type=text]');
   var label=listItem.querySelector("label");
   var editBtn=listItem.querySelector(".main-section__edit");
-  var containsClass=listItem.classList.contains("editMode");
-  //If class of the parent is .editmode
+  var containsClass=listItem.classList.contains("main-section__edit-mode");
+  //If class of the parent is .main-section__edit-mode
   if(containsClass){
 
-    //switch to .editmode
+    //switch to .main-section__edit-mode
     //label becomes the inputs value.
     label.innerText=editInput.value;
     editBtn.innerText="Edit";
@@ -98,8 +98,8 @@ var editTask=function(){
     editBtn.innerText="Save";
   }
 
-  //toggle .editmode on the parent.
-  listItem.classList.toggle("editMode");
+  //toggle .main-section__edit-mode on the parent.
+  listItem.classList.toggle("main-section__edit-mode");
 };
 
 
@@ -119,7 +119,7 @@ var deleteTask=function(){
 var taskCompleted=function(){
   console.log("Complete Task...");
 
-  //Append the task list item to the #completed-tasks
+  //Append the task list item to the #main-section__completed-tasks
   var listItem=this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
